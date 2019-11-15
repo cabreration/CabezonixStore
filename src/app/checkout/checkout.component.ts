@@ -80,7 +80,8 @@ export class CheckoutComponent implements OnInit {
                       nombreTarjeta: this.nombreTarjeta,
                       numeroTarjeta: this.numeroTarjeta,
                       expiracion: this.expiracion,
-                      cvv: this.cvv };
+                      cvv: this.cvv,
+                      carrito: this.shopCart };
 
     const observer = this.rest.PostRequest(factura).subscribe(res => {
       let resp = res;
