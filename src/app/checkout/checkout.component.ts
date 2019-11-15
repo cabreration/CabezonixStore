@@ -25,12 +25,14 @@ export class CheckoutComponent implements OnInit {
 
 
   constructor(private rest: RestService) {
-    /*const observer = this.rest.GetRequest().subscribe(res => {
+    const observer = this.rest.GetRequest().subscribe(res => {
       let resp = res;
-      -------------------> Aqui se debe procesar el resultado de la consulta,
+      console.log(resp);
+      observer.unsubscribe();  
+      /*-------------------> Aqui se debe procesar el resultado de la consulta,
        la consulta debe retornar la lista de todos los productos que estan en la base de datos
-    });
-    observer.unsubscribe(); */
+    */});
+    
    }
 
   ngOnInit() {
