@@ -47,136 +47,21 @@
         <div class="container">
           
           <div class="row">
-            <div *ngFor="let product of products" class="col-md-4">
+            <div *ngFor="let product of products; let i = index" class="col-md-4">
               <div class="card mb-4 box-shadow">
-                <img class="card-img-top mh-50" src="assets/"{{product.imagen}} alt="Card image cap">
+                <img class="card-img-top mh-50" src="{{product.imagen}}" alt="Card image cap">
                 <div class="card-body">
                   <h3>{{product.nombre}}</h3>
                   <p class="card-text">{{product.descripcion}}</p>
                   <p class="card-text">Precio: {{product.precio}}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
+                      <button (click)="addToCart(i+1)"type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
                     </div>
-                    <!--<small class="text-muted">9 mins</small>-->
                   </div>
                 </div>
               </div>
             </div>
-            <!--<div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top mh-50" src="assets/forky.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">Toy Story ya no necesita a Woody, nosotros tampoco, pero, ¡si que todos necesitamos a Forky!</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button (click)="addToCart(2)" type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
-                    </div>
-                    <!--<small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top mh-50" src="assets/pennywise.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">La leyenda es real, no solo el Pennywise de la película se transforma en tu peor miedo, ¡este funko pop también!</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button (click)="addToCart(3)" type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
-                    </div>
-                    <!--<small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="assets/spidey.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">Aunque nos quejemos de Iron Man dando todo a Spidey, todos tenemos que aceptar que nos emociona su nuevo traje de Iron Spider</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button (click)="addToCart(4)" type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
-                    </div>
-                    <!--<small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="assets/deadpool.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">Solo hay un personaje de la cultura pop que tiene más personalidad que Barbie, y ese es Deadpool</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button (click)="addToCart(5)" type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
-                    </div>
-                    <!--<small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="assets/post.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">No, no es Shiah Labeouf, ni el tipo de transformers, a él ya nadie lo recuerda, es Post Malone</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button (click)="addToCart(6)" type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
-                    </div>
-                    <!--<small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="assets/stich.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">Ohana significa familia, y la familia nunca te abandona. Nuestro pequeño amigo azul, Stitch</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button (click)="addToCart(7)" type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
-                    </div>
-                    <!--<small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="assets/neymar.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">Este personaje no es un actor de película, pero sí que sabe actuar, Neymar Jr. para todos</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button (click)="addToCart(8)" type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
-                    </div>
-                    <!--<small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="assets/batman.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">Con Robert Patinson convirtiendose en el nuevo Batman tenía que salir algo así, una versión vampira de Batman</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button (click)="addToCart(9)" type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
-                    </div>
-                    <!--<small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>-->
           </div>
         </div>
       </div>

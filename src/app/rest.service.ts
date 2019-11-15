@@ -10,7 +10,7 @@ const httpOptions = {
 };
 
  /* Esta direccion debe ser cambiada por la direccion que vamos a utilizar */
-const baseAddress = 'http://localhost:3000/bd';
+const baseAddress = 'http://192.168.43.194:3000/bd';
 
 @Injectable({
   providedIn: 'root'

@@ -18,9 +18,11 @@ export class MainComponent implements OnInit {
   {
     const observer = this.rest.GetRequest().subscribe(res => {
       let list = res.message;
+      console.log(res);
       list.forEach(element => {
         this.products.push(element);
       });
+      console.log(this.products);
       observer.unsubscribe();  
     });
   }
