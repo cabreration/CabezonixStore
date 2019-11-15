@@ -25,9 +25,14 @@ export class CheckoutComponent implements OnInit {
 
 
   constructor(private rest: RestService) {
+    let info = JSON.parse(localStorage.getItem('cart'));
+    this.amount = info.amount;
+    this.shopCart = info.cart;
+    this.total = 0;
     const observer = this.rest.GetRequest().subscribe(res => {
-      let resp = res;
-      console.log(resp);
+      this.productsList = res.message;
+      this.filter();
+      this.getTotal();
       observer.unsubscribe();  
       /*-------------------> Aqui se debe procesar el resultado de la consulta,
        la consulta debe retornar la lista de todos los productos que estan en la base de datos
@@ -36,12 +41,6 @@ export class CheckoutComponent implements OnInit {
    }
 
   ngOnInit() {
-    let info = JSON.parse(localStorage.getItem('cart'));
-    this.amount = info.amount;
-    this.shopCart = info.shopCart;
-    this.products.push({id: 1, nombre: 'Batman', descripcion: 'Batman no necesita una descripcion', precio: 125, cantidad: 2});
-    this.total = 0;
-    console.log(info);
   }
 
   // este metodo filtra los productos para ponerlos en la factura
@@ -50,19 +49,26 @@ export class CheckoutComponent implements OnInit {
     this.productsList.forEach(element => {
       let flag = false;
       this.shopCart.forEach(funko => {
-        if (funko = element.id) {
+        if (funko === element.id) {
           if (!flag) {
             this.products.push({id: funko, nombre: element.nombre, descripcion: element.descripcion, precio: element.precio, cantidad: 1});
+            flag = true;
           }
           else {
             this.products.forEach(prod => {
-              if (prod.id = funko) {
+              if (prod.id === funko) {
                 prod.cantidad++;
               }
             });
           }
         }
       });
+    });
+  }
+
+  getTotal(): void {
+    this.products.forEach(element => {
+        this.total += element.precio * element.cantidad;
     });
   }
 
@@ -76,12 +82,12 @@ export class CheckoutComponent implements OnInit {
                       expiracion: this.expiracion,
                       cvv: this.cvv };
 
-    /*const observer = this.rest.PostRequest(factura).subscribe(res => {
+    const observer = this.rest.PostRequest(factura).subscribe(res => {
       let resp = res;
-      -------------------> Aqui se debe procesar el resultado de la consulta,
-       Si la respuesta es positiva se notifica al usuario que la factura fue enviada a su correo electronico
+      console.log(resp);
+      observer.unsubscribe(); 
     });
-    observer.unsubscribe(); */
+    
   }
 
 }
