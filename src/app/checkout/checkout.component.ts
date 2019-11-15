@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../rest.service';
 
+
+declare const algo:any;
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
