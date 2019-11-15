@@ -25,4 +25,8 @@ export class RestService {
   PostRequest(factura) {
     return this.httpClient.post(baseAddress, { factura: factura }, httpOptions);
   }
+
+  SendMessage(message: string) {
+    return this.httpClient.post(baseAddress, { mensaje: message }, httpOptions);
+  }
 }
