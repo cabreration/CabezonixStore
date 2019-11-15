@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { RestService } from '../rest.service';
 
 @Component({
   selector: 'app-main',
@@ -12,7 +13,14 @@ export class MainComponent implements OnInit {
   public amount = 0;
   public id = 0;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private rest: RestService) 
+  {
+    const observer = this.rest.GetRequest().subscribe(res => {
+      let resp = res;
+      console.log(resp);
+      observer.unsubscribe();  
+    });
+  }
 
   ngOnInit() {
     console.log('oninit');
