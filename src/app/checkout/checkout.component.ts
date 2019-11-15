@@ -28,6 +28,14 @@ export class CheckoutComponent implements OnInit {
 
 
   constructor(private rest: RestService) {
+    this.nombre = "";
+    this.apellidos = "";
+    this.correoElectronico = "";
+    this.direccion = "";
+    this.nombreTarjeta = "";
+    this.numeroTarjeta = "";
+    this.expiracion = "";
+    this.cvv = "";
     let info = JSON.parse(localStorage.getItem('cart'));
     this.amount = info.amount;
     this.shopCart = info.cart;
@@ -76,6 +84,18 @@ export class CheckoutComponent implements OnInit {
   }
 
   mailTicket(): void {
+    if (this.nombre === ""
+        || this.apellidos === ""
+        || this.correoElectronico === ""
+        || this.direccion === ""
+        || this.nombreTarjeta === ""
+        || this.numeroTarjeta === ""
+        || this.expiracion === ""
+        || this.cvv === ""
+        || this.shopCart.length === 0) {
+          alert('Todos los campos son obligatorios para poder realizar la compra');
+          return;
+        }
     const factura = { nombre: this.nombre,
                       apellidos: this.apellidos,
                       correoElectronico: this.correoElectronico,
