@@ -22,7 +22,7 @@
         <div class="container d-flex justify-content-between">
           <a href="#" class="navbar-brand d-flex align-items-center">
             <!--<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>-->
-            <strong>Cabezonix</strong>
+            <strong>Cabezonix: {{amount}}</strong>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -37,7 +37,7 @@
           <h1 class="jumbotron-heading mt-5">Cabezonix</h1>
           <p class="lead text-muted mb-3">Nos especializamos en proveer todos aquellos accesorios de la cultura popular que nos vuelven locos a todos. La ventaja de esta tienda en línea es que puedes ver todo lo que quieras y no tienes que darle a nadie excusas como "Nada más estoy viendo gracias" o "¿No lo tiene en azul?"</p>
           <p>
-            <a routerLink='/pagos' class="btn btn-primary my-2 mx-2">Terminar Compra</a>
+            <a (click)="sendShopInfo()" class="btn btn-primary my-2 mx-2 text-white">Terminar Compra</a>
             <a href="#" class="btn btn-secondary my-2">Chatea con nosotros</a>
           </p>
         </div>
@@ -54,7 +54,7 @@
                   <p class="card-text">Vive en una piña debajo del mar.... Todos sabemos quién es, ¡es Bob Esponja Pantalones Cuadrados!</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
+                      <button (click)="addToCart(1)" type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
                     </div>
                     <!--<small class="text-muted">9 mins</small>-->
                   </div>
@@ -68,7 +68,7 @@
                   <p class="card-text">Toy Story ya no necesita a Woody, nosotros tampoco, pero, ¡si que todos necesitamos a Forky!</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
+                      <button (click)="addToCart(2)" type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
                     </div>
                     <!--<small class="text-muted">9 mins</small>-->
                   </div>
@@ -82,7 +82,7 @@
                   <p class="card-text">La leyenda es real, no solo el Pennywise de la película se transforma en tu peor miedo, ¡este funko pop también!</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
+                      <button (click)="addToCart(3)" type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
                     </div>
                     <!--<small class="text-muted">9 mins</small>-->
                   </div>
@@ -97,7 +97,7 @@
                   <p class="card-text">Aunque nos quejemos de Iron Man dando todo a Spidey, todos tenemos que aceptar que nos emociona su nuevo traje de Iron Spider</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
+                      <button (click)="addToCart(4)" type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
                     </div>
                     <!--<small class="text-muted">9 mins</small>-->
                   </div>
@@ -111,7 +111,7 @@
                   <p class="card-text">Solo hay un personaje de la cultura pop que tiene más personalidad que Barbie, y ese es Deadpool</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
+                      <button (click)="addToCart(5)" type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
                     </div>
                     <!--<small class="text-muted">9 mins</small>-->
                   </div>
@@ -125,7 +125,7 @@
                   <p class="card-text">No, no es Shiah Labeouf, ni el tipo de transformers, a él ya nadie lo recuerda, es Post Malone</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
+                      <button (click)="addToCart(6)" type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
                     </div>
                     <!--<small class="text-muted">9 mins</small>-->
                   </div>
@@ -140,7 +140,7 @@
                   <p class="card-text">Ohana significa familia, y la familia nunca te abandona. Nuestro pequeño amigo azul, Stitch</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
+                      <button (click)="addToCart(7)" type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
                     </div>
                     <!--<small class="text-muted">9 mins</small>-->
                   </div>
@@ -154,7 +154,7 @@
                   <p class="card-text">Este personaje no es un actor de película, pero sí que sabe actuar, Neymar Jr. para todos</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
+                      <button (click)="addToCart(8)" type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
                     </div>
                     <!--<small class="text-muted">9 mins</small>-->
                   </div>
@@ -168,7 +168,7 @@
                   <p class="card-text">Con Robert Patinson convirtiendose en el nuevo Batman tenía que salir algo así, una versión vampira de Batman</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
+                      <button (click)="addToCart(9)" type="button" class="btn btn-sm btn-outline-primary">Agregar Al Carrito</button>
                     </div>
                     <!--<small class="text-muted">9 mins</small>-->
                   </div>
@@ -178,7 +178,6 @@
           </div>
         </div>
       </div>
-  
     </main>
   
     <footer class="text-muted">
