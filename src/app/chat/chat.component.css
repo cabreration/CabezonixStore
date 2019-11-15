@@ -1,0 +1,32 @@
+.chatBox{
+	position: relative;
+	margin: 1%;
+	padding: 10px 10px;
+	border: 1px solid #ececec;
+	border-radius: 1px;
+	max-height: 80vh;
+	min-height: 50vh;
+    overflow: scroll;
+}
+
+.response{
+    border: 1px solid #007AFF;
+    background: #007AFF;
+    padding:2%;
+    width: 40%;
+    color: #fff;
+    border-radius:  20px;
+}
+
+.request{
+    background: #00CC47;
+    border: 1px solid #00CC47;
+    padding:2%;
+    width: 40%;
+    color: #fff;
+    border-radius: 20px;
+    float: right;
+}
+
+.w3-input{padding:10px;display:block;border:1px solid #ccc; width:100%; 
+    margin: 1px auto !important;}

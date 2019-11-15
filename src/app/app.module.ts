@@ -6,10 +6,12 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RestService } from './rest.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
-    routingComponents
+    routingComponents,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

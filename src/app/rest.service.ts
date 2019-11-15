@@ -21,4 +21,8 @@ export class RestService {
   GetRequest() {
     return this.httpClient.get(baseAddress, httpOptions);
   }
+
+  PostRequest(factura) {
+    return this.httpClient.post(baseAddress, { factura: factura }, httpOptions);
+  }
 }

@@ -64,4 +64,22 @@ export class CheckoutComponent implements OnInit {
     });
   }
 
+  mailTicket(): void {
+    const factura = { nombre: this.nombre,
+                      apellidos: this.apellidos,
+                      correoElectronico: this.correoElectronico,
+                      direccion: this.direccion,
+                      nombreTarjeta: this.nombreTarjeta,
+                      numeroTarjeta: this.numeroTarjeta,
+                      expiracion: this.expiracion,
+                      cvv: this.cvv };
+
+    /*const observer = this.rest.PostRequest(factura).subscribe(res => {
+      let resp = res;
+      -------------------> Aqui se debe procesar el resultado de la consulta,
+       Si la respuesta es positiva se notifica al usuario que la factura fue enviada a su correo electronico
+    });
+    observer.unsubscribe(); */
+  }
+
 }

@@ -1,0 +1,28 @@
+<div class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading mt-2">Cabezonix Chat</h1>
+      <p>
+        <a class="btn btn-outline-primary my-2 mx-2 text-primary">Terminar Compra</a>
+        <a routerLink='/' class="btn btn-outline-danger my-2">Salir del Chat</a>
+      </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="chatBox">
+        <div class="response"> <strong>Cabezonix Bot</strong> <br>Bienvenido, por favor elija una de las siguientes opciones: 
+            <br> 1. Verificar la existencia de algun producto
+            <br> 2. Realizar alguna queja sobre el servicio prestado
+            <br> 3. Realizar compras por medio del chat
+        </div>
+        <hr/>
+        <div *ngFor='let message of conversacion'>
+        <div class="response"> <strong>Usuario</strong> <br>{{message}}</div>
+        <hr/> 
+        </div>
+        <input class="w3-input" type="text" placeholder="Su Mensaje Aqui"
+            [(ngModel)]='mensaje'>   
+            <button type="button" class="btn btn-success btn-lg mt-2 float-right"> Enviar Mensaje </button>
+            <hr>     
+    </div>
+</div>
