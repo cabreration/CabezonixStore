@@ -12,12 +12,15 @@ export class MainComponent implements OnInit {
   public shopCart = [];
   public amount = 0;
   public id = 0;
+  public products = [];
 
   constructor(private router: Router, private rest: RestService) 
   {
     const observer = this.rest.GetRequest().subscribe(res => {
-      let resp = res;
-      console.log(resp);
+      let list = res.message;
+      list.forEach(element => {
+        this.products.push(element);
+      });
       observer.unsubscribe();  
     });
   }
