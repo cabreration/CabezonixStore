@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Producto } from './Producto';
 
 const httpOptions = {
   headers : new HttpHeaders({
@@ -9,7 +10,7 @@ const httpOptions = {
 };
 
  /* Esta direccion debe ser cambiada por la direccion que vamos a utilizar */
-const baseAddress = 'https://localhost:44355/api/values';
+const baseAddress = 'http://localhost:3000/bd';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,8 @@ export class RestService {
 
   constructor(private httpClient: HttpClient) { }
 
-  GetRequest() {
-    return this.httpClient.get(baseAddress, httpOptions);
+  GetRequest():Observable<Producto> {
+    return this.httpClient.get<Producto>(baseAddress, httpOptions);
   }
 
   PostRequest(factura) {
